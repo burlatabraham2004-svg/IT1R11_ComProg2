@@ -1,0 +1,83 @@
+package activity2;
+
+import java.util.Scanner;
+
+public class Problem1 {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        double balance = 500.00;
+        int choice;
+        double amount;
+
+        System.out.println("---SHREWDNESS ATM MENU ---");
+        System.out.println("1. Deposit");
+        System.out.println("2. Withdraw");
+        System.out.println("3. Check Balance");
+
+        System.out.print("\nEnter choice: ");
+        choice = input.nextInt();
+
+        switch (choice) {
+
+            case 1:
+                System.out.print("Enter amount: ");
+                amount = input.nextDouble();
+
+                if (amount < 0) {
+                    System.out.println("Error: Deposit amount cannot be negative.");
+                } else {
+                    balance = balance + amount;
+
+                    System.out.println("\n========================================");
+                    System.out.println("           SHREWDNESS BANK RECEIPT");
+                    System.out.println("========================================");
+                    System.out.println("Transaction:   Deposit");
+                    System.out.println("Amount:        " + amount + " Php");
+                    System.out.println("----------------------------------------");
+                    System.out.println("NEW BALANCE:   " + balance + " Php");
+                    System.out.println("========================================");
+                }
+                break;
+
+            case 2:
+                System.out.print("Enter amount: ");
+                amount = input.nextDouble();
+
+                if (amount < 0) {
+                    System.out.println("Error: Withdrawal amount cannot be negative.");
+                } else if (amount > balance) {
+                    System.out.println("Error: Insufficient balance.");
+                } else {
+                    balance = balance - amount;
+
+                    System.out.println("\n========================================");
+                    System.out.println("           SHREWDNESS BANK RECEIPT");
+                    System.out.println("========================================");
+                    System.out.println("Transaction:   Withdrawal");
+                    System.out.println("Amount:        " + amount + " Php");
+                    System.out.println("----------------------------------------");
+                    System.out.println("NEW BALANCE:   " + balance + " Php");
+                    System.out.println("========================================");
+                }
+                break;
+
+            case 3:
+                System.out.println("\n========================================");
+                System.out.println("           SHREWDNESS BANK RECEIPT");
+                System.out.println("========================================");
+                System.out.println("Transaction:   Check Balance");
+                System.out.println("----------------------------------------");
+                System.out.println("BALANCE:       " + balance + " Php");
+                System.out.println("========================================");
+                break;
+
+            default:
+                System.out.println("Error: Invalid menu choice.");
+        }
+
+        input.close();
+    }
+}
